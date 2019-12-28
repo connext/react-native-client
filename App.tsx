@@ -17,14 +17,15 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableHighlight,
+  Linking,
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
   Colors,
   DebugInstructions,
   ReloadInstructions,
+  Header,
 } from 'react-native/Libraries/NewAppScreen';
 
 import { ethers as eth } from 'ethers';
@@ -37,7 +38,6 @@ declare var global: { HermesInternal: null | {} };
 const App = () => {
   const [mnemonic] = useState(eth.Wallet.createRandom().mnemonic);
   const [channel, setChannel] = useState(undefined as any);
-  // const [ethProvider, setEthProvider] = useState(undefined as any);
 
   const ethProviderUrl =
     'https://rinkeby.indra.connext.network/api/ethprovider';
@@ -91,11 +91,7 @@ const App = () => {
               <Text style={styles.sectionTitle}>Channel Information</Text>
               <Text style={styles.sectionDescription}>
                 {channel
-                  ? `Public Identifier:${
-                      channel.publicIdentifier
-                    }\nMultisig address: ${
-                      channel.multisigAddress
-                    }\nFree balance address: ${channel.freeBalanceAddress}`
+                  ? `Public Identifier:${channel.publicIdentifier}\nMultisig address: ${channel.multisigAddress}\nFree balance address: ${channel.freeBalanceAddress}`
                   : 'Still loading channel.'}
               </Text>
             </View>
@@ -114,11 +110,18 @@ const App = () => {
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
+              <View style={styles.sectionFooter}>
+                <TouchableHighlight
+                  onPress={() =>
+                    Linking.openURL('https://docs.connext.network')
+                  }>
+                  <Text style={styles.sectionDescription}>
+                    Read the <Text style={styles.highlight}>docs</Text> to
+                    discover what to do next!
+                  </Text>
+                </TouchableHighlight>
+              </View>
             </View>
-            <LearnMoreLinks />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -162,6 +165,9 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+  },
+  sectionFooter: {
+    marginBottom: 32,
   },
 });
 
