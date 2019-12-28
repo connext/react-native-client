@@ -29,25 +29,12 @@ import {
 
 import { ethers as eth } from 'ethers';
 
-import * as crypto from 'isomorphic-webcrypto';
-
 import * as connext from '@connext/client';
 import Store from './store.js';
 
 declare var global: { HermesInternal: null | {} };
 
 const App = () => {
-  const [random, setRandom] = useState(0);
-
-  // FIXME: why does the app not break when this is done here
-  // vs in index.js (see metamask source, potentially pods issue?)
-  crypto.ensureSecure().then(() => {
-    const array = new Uint8Array(1);
-    // @ts-ignore
-    crypto.getRandomValues(array);
-    setRandom(array[0]);
-  });
-
   const [mnemonic] = useState(eth.Wallet.createRandom().mnemonic);
   const [channel, setChannel] = useState(undefined as any);
   // const [ethProvider, setEthProvider] = useState(undefined as any);
@@ -61,7 +48,6 @@ const App = () => {
       const store: any = await Store.init();
       console.log('store init-d, testing provider');
       const provider = new eth.providers.JsonRpcProvider(ethProviderUrl);
-      console.log(`provider: ${JSON.stringify(provider, null, 2)}`);
       const network = await provider.getNetwork();
       console.log(`got network id: ${network.chainId}. testing connect...`);
       const chan: any = await connext.connect({
@@ -70,6 +56,7 @@ const App = () => {
         ethProviderUrl,
         store,
       });
+      console.log('channel connected!');
       setChannel(chan);
     };
     startConnext();
@@ -101,6 +88,19 @@ const App = () => {
               </Text>
             </View>
             <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Channel Information</Text>
+              <Text style={styles.sectionDescription}>
+                {channel
+                  ? `Public Identifier:${
+                      channel.publicIdentifier
+                    }\nMultisig address: ${
+                      channel.multisigAddress
+                    }\nFree balance address: ${channel.freeBalanceAddress}`
+                  : 'Still loading channel.'}
+              </Text>
+            </View>
+
+            <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>See Your Changes</Text>
               <Text style={styles.sectionDescription}>
                 <ReloadInstructions />
@@ -110,20 +110,6 @@ const App = () => {
               <Text style={styles.sectionTitle}>Debug</Text>
               <Text style={styles.sectionDescription}>
                 <DebugInstructions />
-              </Text>
-            </View>
-            <View>
-              <Text style={styles.sectionTitle}>
-                Channel information:
-                <Text style={styles.highlight}>
-                  {channel
-                    ? `Public Identifier: ${
-                        channel.publicIdentifier
-                      }\nMultisig address: ${
-                        channel.opts.multisigAddress
-                      }\nFree balance address: ${channel.freeBalanceAddress}`
-                    : 'Still loading channel.'}
-                </Text>
               </Text>
             </View>
             <View style={styles.sectionContainer}>

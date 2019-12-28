@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import { ConnextClientStorePrefix } from '@connext/client';
+
 /**
  * Class that manages the persistance of the InstaPay Store
  * initializing with previous data if available and persist
@@ -72,18 +73,17 @@ class Store {
   };
 
   persist = async () => {
-    await AsyncStorage.setItem(`ConnextChannel`, JSON.stringify(this.data));
+    await AsyncStorage.setItem('ConnextChannel', JSON.stringify(this.data));
   };
 
-  clear = () => AsyncStorage.removeItem(`ConnextChannel`);
+  clear = () => AsyncStorage.removeItem('ConnextChannel');
 }
 
 let instance;
 
 export default {
   async init() {
-    console.log(`initing the store...`);
-    const data = await AsyncStorage.getItem(`ConnextChannel`);
+    const data = await AsyncStorage.getItem('ConnextChannel');
     instance = new Store(data);
     Object.freeze(instance);
     return instance;
