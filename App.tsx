@@ -25,9 +25,10 @@ import {
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
+import * as EthCrypto from './eth-crypto';
+
 import { Buffer } from 'buffer';
 import crypto from 'crypto';
-
 import eccrypto from 'eccrypto';
 
 import { ethers as eth } from 'ethers';
@@ -59,23 +60,55 @@ const ChannelDetail = ({ label, data, numberOfLines }: any) => (
 
 async function testEccrypto() {
   const privateKeyA = crypto.randomBytes(32);
-  console.log('PRIVATE KEY A', '==>', privateKeyA.toString('hex'));
+  console.log(
+    '[eccrypto]',
+    'PRIVATE KEY A',
+    '==>',
+    privateKeyA.toString('hex'),
+  );
   const publicKeyA = eccrypto.getPublic(privateKeyA);
-  console.log('PUBLIC KEY A', '==>', publicKeyA.toString('hex'));
+  console.log('[eccrypto]', 'PUBLIC KEY A', '==>', publicKeyA.toString('hex'));
   const privateKeyB = eccrypto.generatePrivate();
-  console.log('PRIVATE KEY B', '==>', privateKeyB.toString('hex'));
+  console.log(
+    '[eccrypto]',
+    'PRIVATE KEY B',
+    '==>',
+    privateKeyB.toString('hex'),
+  );
   const publicKeyB = eccrypto.getPublic(privateKeyB);
-  console.log('PUBLIC KEY B', '==>', publicKeyB.toString('hex'));
+  console.log('[eccrypto]', 'PUBLIC KEY B', '==>', publicKeyB.toString('hex'));
   const message = 'Hello World!';
-  console.log('MESSAGE', '==>', message);
+  console.log('[eccrypto]', 'MESSAGE', '==>', message);
   const encrypted = await eccrypto.encrypt(publicKeyB, Buffer.from(message));
-  console.log('ENCRYPTED', '==>', JSON.stringify(encrypted));
+  console.log('[eccrypto]', 'ENCRYPTED', '==>', JSON.stringify(encrypted));
   const decrypted = await eccrypto.decrypt(privateKeyB, encrypted);
-  console.log('DECRYPTED', '==>', decrypted.toString());
+  console.log('[eccrypto]', 'DECRYPTED', '==>', decrypted.toString());
+}
+
+async function testEthCrypto() {
+  const account = eth.Wallet.createRandom();
+  const privateKey = account.privateKey;
+  console.log('[eth-crypto]', 'PRIVATE KEY', '==>', privateKey);
+  // @ts-ignore
+  const publicKey = account.signingKey.publicKey;
+  console.log('[eth-crypto]', 'PUBLIC KEY', '==>', publicKey);
+  const message = 'Hello World!';
+  console.log('[eth-crypto]', 'MESSAGE', '==>', message);
+  const encrypted = await EthCrypto.encryptWithPublicKey(
+    EthCrypto.removeTrailing0x(publicKey),
+    message,
+  );
+  console.log('[eth-crypto]', 'ENCRYPTED', '==>', JSON.stringify(encrypted));
+  const decrypted = await EthCrypto.decryptWithPrivateKey(
+    EthCrypto.removeTrailing0x(privateKey),
+    encrypted,
+  );
+  console.log('[eth-crypto]', 'DECRYPTED', '==>', decrypted);
 }
 
 const App = () => {
   testEccrypto();
+  testEthCrypto();
 
   const [mnemonic] = useState(eth.Wallet.createRandom().mnemonic);
   const [channel, setChannel] = useState(undefined as any);
