@@ -25,7 +25,10 @@ import {
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
+import { Buffer } from 'buffer';
 import crypto from 'crypto';
+
+import eccrypto from 'eccrypto';
 
 import { ethers as eth } from 'ethers';
 
@@ -54,8 +57,25 @@ const ChannelDetail = ({ label, data, numberOfLines }: any) => (
   </>
 );
 
+async function testEccrypto() {
+  const privateKeyA = crypto.randomBytes(32);
+  console.log('PRIVATE KEY A', '==>', privateKeyA.toString('hex'));
+  const publicKeyA = eccrypto.getPublic(privateKeyA);
+  console.log('PUBLIC KEY A', '==>', publicKeyA.toString('hex'));
+  const privateKeyB = eccrypto.generatePrivate();
+  console.log('PRIVATE KEY B', '==>', privateKeyB.toString('hex'));
+  const publicKeyB = eccrypto.getPublic(privateKeyB);
+  console.log('PUBLIC KEY B', '==>', publicKeyB.toString('hex'));
+  const message = 'Hello World!';
+  console.log('MESSAGE', '==>', message);
+  const encrypted = await eccrypto.encrypt(publicKeyB, Buffer.from(message));
+  console.log('ENCRYPTED', '==>', JSON.stringify(encrypted));
+  const decrypted = await eccrypto.decrypt(privateKeyB, encrypted);
+  console.log('DECRYPTED', '==>', decrypted.toString());
+}
+
 const App = () => {
-  console.log('KEY', '==>', crypto.randomBytes(32).toString('hex'));
+  testEccrypto();
 
   const [mnemonic] = useState(eth.Wallet.createRandom().mnemonic);
   const [channel, setChannel] = useState(undefined as any);
