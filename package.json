@@ -6,10 +6,12 @@
     "android": "node_modules/.bin/react-native run-android",
     "ios": "node_modules/.bin/react-native run-ios",
     "start": "node_modules/.bin/react-native start",
+    "clean-start": "yarn run clean:metro && node_modules/.bin/react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "postinstall": "bash ops/post-install.sh",
-    "clean": "rm -rf node_modules && rm -rf /tmp/metro-* && watchman watch-del-all",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:metro": "rm -rf /tmp/metro-* && watchman watch-del-all",
     "clean:ios": "cd ios && rm -rf build && pod cache clean --all && rm -rf Pods && cd .."
   },
   "dependencies": {
@@ -28,7 +30,6 @@
     "ethers": "^4.0.40",
     "events": "^1.1.1",
     "https-browserify": "0.0.1",
-    "isomorphic-webcrypto": "^2.3.2",
     "path-browserify": "0.0.0",
     "process": "^0.11.10",
     "punycode": "^1.4.1",
