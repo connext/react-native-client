@@ -1932,9 +1932,9 @@ connect@^3.6.5:
     parseurl "~1.3.3"
     utils-merge "1.0.1"
 
-connext-store@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/connext-store/-/connext-store-1.1.0.tgz#5b5805b322f849669adb13782bd9a2cad9f49401"
+connext-store@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/connext-store/-/connext-store-1.1.2.tgz#1c9dd13d28d6ac7a6f897d2c24b084e31f56b9c1"
   dependencies:
     ethers "4.0.40"
     pisa-client "0.1.4-connext-beta.1"

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
