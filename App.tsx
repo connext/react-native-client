@@ -31,7 +31,9 @@ import {
 import { ethers as eth } from 'ethers';
 
 import * as connext from '@connext/client';
+import { CF_PATH } from '@connext/types';
 import Store from './store.js';
+import { fromExtendedKey, fromMnemonic } from 'ethers/utils/hdnode';
 
 declare var global: { HermesInternal: null | {} };
 
@@ -50,8 +52,17 @@ const App = () => {
       const provider = new eth.providers.JsonRpcProvider(ethProviderUrl);
       const network = await provider.getNetwork();
       console.log(`got network id: ${network.chainId}. testing connect...`);
+      const hdNode = fromExtendedKey(
+        fromMnemonic(mnemonic).extendedKey,
+      ).derivePath(CF_PATH);
+      const xpub = hdNode.neuter().extendedKey;
+      const keyGen = (index: string) => {
+        const res = hdNode.derivePath(index);
+        return Promise.resolve(res.privateKey);
+      };
       const chan: any = await connext.connect({
-        mnemonic,
+        xpub,
+        keyGen,
         nodeUrl: 'wss://rinkeby.indra.connext.network/api/messaging',
         ethProviderUrl,
         store,
@@ -91,7 +102,11 @@ const App = () => {
               <Text style={styles.sectionTitle}>Channel Information</Text>
               <Text style={styles.sectionDescription}>
                 {channel
-                  ? `Public Identifier:${channel.publicIdentifier}\nMultisig address: ${channel.multisigAddress}\nFree balance address: ${channel.freeBalanceAddress}`
+                  ? `Public Identifier: ${
+                      channel.publicIdentifier
+                    }\nMultisig address: ${
+                      channel.multisigAddress
+                    }\nFree balance address: ${channel.freeBalanceAddress}`
                   : 'Still loading channel.'}
               </Text>
             </View>
