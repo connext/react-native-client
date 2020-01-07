@@ -11,6 +11,8 @@
 
 import React, { useState, useEffect } from 'react';
 import {
+  Alert,
+  Clipboard,
   SafeAreaView,
   StyleSheet,
   ScrollView,
@@ -21,19 +23,34 @@ import {
   Linking,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-  Header,
-} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import { ethers as eth } from 'ethers';
 
 import * as connext from '@connext/client';
 import Store from './store.js';
 
-declare var global: { HermesInternal: null | {} };
+function copyToClipboard(
+  data: string,
+  message: string,
+  title: string = 'Copied',
+) {
+  Clipboard.setString(data);
+  Alert.alert(title, message);
+}
+
+const ChannelDetail = ({ label, data, numberOfLines }: any) => (
+  <>
+    <Text style={styles.label}>{`${label}`}</Text>
+    <Text
+      style={styles.baseFont}
+      adjustsFontSizeToFit
+      numberOfLines={numberOfLines}
+      onPress={() => copyToClipboard(data, `Copied ${label} to clipboard`)}>
+      {data}
+    </Text>
+  </>
+);
 
 const App = () => {
   const [mnemonic] = useState(eth.Wallet.createRandom().mnemonic);
@@ -69,44 +86,52 @@ const App = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Hello, Connext!</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.tsx</Text> to change
-                this screen and then come back to see your edits.
-              </Text>
-              <Text style={styles.sectionDescription}>
-                Your randomly generated mnemonic is:{'\n'}
-                <Text style={styles.highlight}>{mnemonic}</Text>
-              </Text>
+              <Text style={styles.sectionTitle}>{'Hello, Connext!'}</Text>
+              <View style={styles.sectionDescription}>
+                <Text style={styles.baseFont}>
+                  {'Your randomly generated mnemonic is:'}
+                </Text>
+                <Text
+                  style={styles.highlight}
+                  onPress={() =>
+                    copyToClipboard(mnemonic, 'Copied mnemonic to clipboard')
+                  }>
+                  {mnemonic}
+                </Text>
+              </View>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Channel Information</Text>
-              <Text style={styles.sectionDescription}>
-                {channel
-                  ? `Public Identifier:${channel.publicIdentifier}\nMultisig address: ${channel.multisigAddress}\nFree balance address: ${channel.freeBalanceAddress}`
-                  : 'Still loading channel.'}
-              </Text>
-            </View>
-
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
+              <Text style={styles.sectionTitle}>{'Channel Information'}</Text>
+              {channel ? (
+                <View>
+                  <ChannelDetail
+                    label={'Network'}
+                    data={'Rinkeby'}
+                    numberOfLines={1}
+                  />
+                  <ChannelDetail
+                    label={'Public Identifier'}
+                    data={channel.publicIdentifier}
+                    numberOfLines={3}
+                  />
+                  <ChannelDetail
+                    label={'Multisig Address'}
+                    data={channel.multisigAddress}
+                    numberOfLines={1}
+                  />
+                  <ChannelDetail
+                    label={'Free Balance Address'}
+                    data={channel.freeBalanceAddress}
+                    numberOfLines={1}
+                  />
+                </View>
+              ) : (
+                <Text style={styles.sectionDescription}>
+                  {'Still loading channel...'}
+                </Text>
+              )}
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Learn More</Text>
@@ -130,6 +155,15 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  baseFont: {
+    fontSize: 18,
+    fontWeight: '400',
+  },
+  label: {
+    fontSize: 18,
+    fontWeight: '700',
+    marginTop: 8,
+  },
   scrollView: {
     backgroundColor: Colors.lighter,
   },
@@ -156,6 +190,7 @@ const styles = StyleSheet.create({
     color: Colors.dark,
   },
   highlight: {
+    fontSize: 18,
     fontWeight: '700',
   },
   footer: {
