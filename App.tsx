@@ -51,6 +51,15 @@ const ChannelDetail = ({ label, data, numberOfLines }: any) => (
   </>
 );
 
+async function testConnextStore() {
+  const data = await AsyncStorage.getItem('CONNEXT_STORE')
+  if (data) {
+    console.log('ConnextStore data exists in AsyncStorage')
+  } else {
+    console.warn('Failed to find ConnextStore data in AsyncStorage')
+  }
+}
+
 const App = () => {
   const [mnemonic] = useState(eth.Wallet.createRandom().mnemonic);
   const [channel, setChannel] = useState(undefined as any);
@@ -73,7 +82,9 @@ const App = () => {
         store,
       });
       console.log('channel connected!');
+
       setChannel(chan);
+      testConnextStore()
     };
     startConnext();
   }, [mnemonic]);
