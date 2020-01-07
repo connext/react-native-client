@@ -26,9 +26,9 @@ import {
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import { ethers as eth } from 'ethers';
-
+import AsyncStorage from '@react-native-community/async-storage';
+import ConnextStore from 'connext-store';
 import * as connext from '@connext/client';
-import Store from './store.js';
 
 function copyToClipboard(
   data: string,
@@ -62,7 +62,7 @@ const App = () => {
   useEffect(() => {
     const startConnext = async () => {
       console.log('starting connext...');
-      const store: any = await Store.init();
+      const store = new ConnextStore(AsyncStorage);
       console.log('store init-d, testing provider');
       const provider = new eth.providers.JsonRpcProvider(ethProviderUrl);
       const network = await provider.getNetwork();
