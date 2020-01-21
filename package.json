@@ -15,7 +15,7 @@
     "clean:ios": "cd ios && rm -rf build && pod cache clean --all && rm -rf Pods && cd .."
   },
   "dependencies": {
-    "@connext/client": "1.4.2",
+    "@connext/client": "3.0.1",
     "@react-native-community/async-storage": "^1.7.1",
     "@tradle/react-native-http": "^2.0.1",
     "assert": "^1.5.0",
@@ -23,7 +23,6 @@
     "base-64": "^0.1.0",
     "browserify-zlib": "^0.1.4",
     "buffer": "^4.9.2",
-    "connext-store": "^1.1.7",
     "console-browserify": "^1.2.0",
     "constants-browserify": "^1.0.0",
     "dns.js": "^1.0.1",

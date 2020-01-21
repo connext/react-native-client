@@ -26,7 +26,6 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import { ethers as eth } from 'ethers';
 import AsyncStorage from '@react-native-community/async-storage';
-import ConnextStore from 'connext-store';
 import * as connext from '@connext/client';
 
 function copyToClipboard(
@@ -61,16 +60,13 @@ const App = () => {
   useEffect(() => {
     const startConnext = async () => {
       console.log('starting connext...');
-      const store = new ConnextStore(AsyncStorage);
       console.log('store init-d, testing provider');
       const provider = new eth.providers.JsonRpcProvider(ethProviderUrl);
-      const network = await provider.getNetwork();
-      console.log(`got network id: ${network.chainId}. testing connect...`);
-      const chan: any = await connext.connect({
+      const network = (await provider.getNetwork()).name;
+      console.log(`got network: ${network}. testing connect...`);
+      const chan: any = await connext.connect(network, {
         mnemonic,
-        nodeUrl: 'wss://rinkeby.indra.connext.network/api/messaging',
-        ethProviderUrl,
-        store,
+        asyncStorage: AsyncStorage,
       });
       console.log('channel connected!');
 

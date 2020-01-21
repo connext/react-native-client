@@ -582,17 +582,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@connext/cf-adjudicator-contracts@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@connext/cf-adjudicator-contracts/-/cf-adjudicator-contracts-0.4.1.tgz#55153cbfef690733e9cf528f9721cfd29d7ab7d0"
-
-"@connext/cf-core@1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@connext/cf-core/-/cf-core-1.4.2.tgz#802abe9ed59d51037513b15c0100762485135497"
+"@connext/cf-core@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@connext/cf-core/-/cf-core-3.0.1.tgz#73acbfc28824a1479090e2a5cea22f1b34221a86"
+  integrity sha512-7FT7PToRR07HGs6jBWJpZZAJCieYlIYUMahn6ef191YSXSRlVsPEnZCDEvBwuA8Yj/t6W7jCI6VUCpOXyBhasw==
   dependencies:
-    "@connext/cf-adjudicator-contracts" "0.4.1"
-    "@connext/cf-funding-protocol-contracts" "0.4.1"
-    "@connext/types" "1.4.2"
+    "@connext/contracts" "1.0.1"
+    "@connext/types" "3.0.1"
     ethers "4.0.41"
     eventemitter3 "4.0.0"
     loglevel "1.6.6"
@@ -602,20 +598,17 @@
     typescript-memoize "1.0.0-alpha.3"
     uuid "3.3.3"
 
-"@connext/cf-funding-protocol-contracts@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@connext/cf-funding-protocol-contracts/-/cf-funding-protocol-contracts-0.4.1.tgz#5c12afc2607be4bb60876490569c01a63e6ea246"
-
-"@connext/client@1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@connext/client/-/client-1.4.2.tgz#4d9369a5d99eb77d1f84b269f4ee755e34fe6008"
+"@connext/client@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@connext/client/-/client-3.0.1.tgz#424f299840a9ed6a1ccf03573515e3e1a060e137"
+  integrity sha512-OGDplERzOj/Ia9phpBK7Vh6e3KX+zfqU8V+TokAfJmLWxUJ8gMHdeAgjs4jIN52h+GCr7ynL2yOYLfGjx2EgUw==
   dependencies:
-    "@connext/cf-core" "1.4.2"
-    "@connext/cf-funding-protocol-contracts" "0.4.1"
-    "@connext/messaging" "1.4.2"
-    "@connext/types" "1.4.2"
+    "@connext/cf-core" "3.0.1"
+    "@connext/messaging" "3.0.1"
+    "@connext/store" "3.0.1"
+    "@connext/types" "3.0.1"
     core-js "3.6.1"
-    eccrypto "1.1.2"
+    eccrypto "1.1.3"
     ethers "4.0.41"
     human-standard-token-abi "2.0.0"
     regenerator-runtime "0.13.3"
@@ -623,19 +616,47 @@
     secp256k1 "3.8.0"
     uuid "3.3.3"
 
-"@connext/messaging@1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@connext/messaging/-/messaging-1.4.2.tgz#6c61f9d994e43c770908f0807c09d420128d7f09"
+"@connext/contracts@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@connext/contracts/-/contracts-1.0.1.tgz#1a5b72f6b890d004e6dad429e70597d53a47bbeb"
+  integrity sha512-K2wHOlwQhOBZSuh0rVvdzuP1D7HgMe49tzhrmaATnf+4ro+c1U1GN5MjuW7cNpowAYSP8MvOaVrSWPhaxNcJrQ==
   dependencies:
-    "@connext/types" "1.4.2"
+    "@connext/types" "1.5.0"
+    ethers "4.0.41"
+    openzeppelin-solidity "2.3.0"
+
+"@connext/messaging@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@connext/messaging/-/messaging-3.0.1.tgz#f685a2a2617c7c1cccb8f449d00b3611156b640a"
+  integrity sha512-nwrLCUxVviIMPPwNa7BS/XHzwXvmkL3vcJfF4tUxe8UpAcKzqUWdZPN5URBXpDH25/N6XYHXEyu2JKrYmEIrPg==
+  dependencies:
+    "@connext/types" "3.0.1"
     ts-nats "1.2.4"
     websocket-nats "0.3.3"
 
-"@connext/types@1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@connext/types/-/types-1.4.2.tgz#a3496403822171c323b941ec6a8d02133fa78b6f"
+"@connext/store@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@connext/store/-/store-3.0.1.tgz#2d9e4707407999a06e85b8efce1a4792c7549ff1"
+  integrity sha512-l+FQ2gbGFsKGXKB+86XUNTQuwwm47u+80X4i4jCSZxijFEzW5Y/28K2Ey4RNyhxbRIHXN+0zZEQeUlJNuKaDKQ==
+  dependencies:
+    "@connext/types" "3.0.1"
+    ethers "4.0.41"
+    uuid "3.3.3"
+
+"@connext/types@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@connext/types/-/types-1.5.0.tgz#85faed033b2d42b481fb28b58d2db4228fa9e642"
+  integrity sha512-HkF3ZQeSKKzr7tigQNGBTrxzK57GQjPOPaWNALsK7Vm1Fe5iaLxO4mu+N3TUpmffxZlHillXiY/AzV7BffU9tA==
   dependencies:
     ethers "4.0.41"
+
+"@connext/types@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@connext/types/-/types-3.0.1.tgz#86ba5264572f15e9e2d8186825dccb264d29c6cd"
+  integrity sha512-nYFKKyzUzXs2DnK7nDNuVL18y0gQZszq+Z0cfEM5inFDnKiI+QEXI88vHbIwJYPd57zQEMuSLK5Uu5jIVq1Xdg==
+  dependencies:
+    ethers "4.0.41"
+    pisa-client "0.1.4-connext-beta.1"
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -1932,13 +1953,6 @@ connect@^3.6.5:
     parseurl "~1.3.3"
     utils-merge "1.0.1"
 
-connext-store@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/connext-store/-/connext-store-1.1.7.tgz#f35d6e78a3a5220072631a73867883907adb9936"
-  dependencies:
-    ethers "4.0.40"
-    pisa-client "0.1.4-connext-beta.1"
-
 console-browserify@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.2.0.tgz#67063cef57ceb6cf4993a2ab3a55840ae8c49336"
@@ -2246,9 +2260,10 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-eccrypto@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/eccrypto/-/eccrypto-1.1.2.tgz#7962402f923044d25a802d7369447b0a563873b1"
+eccrypto@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/eccrypto/-/eccrypto-1.1.3.tgz#010cb4e9d239ce9752b82c0ac6d8af207fffaf3e"
+  integrity sha512-Xtyj039Xp2NDZwoe9IcD7pT1EwM4DILdxPCN2H7Rk1wgJNtTkFpk+cpX1QpuHTMaIhkatOBlGGKzGw/DUCDdqg==
   dependencies:
     acorn "7.1.0"
     elliptic "6.5.1"
@@ -2573,20 +2588,6 @@ esutils@^2.0.0, esutils@^2.0.2:
 etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
-
-ethers@4.0.40:
-  version "4.0.40"
-  resolved "https://registry.yarnpkg.com/ethers/-/ethers-4.0.40.tgz#6e1963d10b5d336a13cd81b519c230cc17624653"
-  dependencies:
-    aes-js "3.0.0"
-    bn.js "^4.4.0"
-    elliptic "6.5.2"
-    hash.js "1.1.3"
-    js-sha3 "0.5.7"
-    scrypt-js "2.0.4"
-    setimmediate "1.0.4"
-    uuid "2.0.1"
-    xmlhttprequest "1.8.0"
 
 ethers@4.0.41, ethers@^4.0.40:
   version "4.0.41"
@@ -4877,6 +4878,11 @@ open@^6.2.0:
   resolved "https://registry.yarnpkg.com/open/-/open-6.4.0.tgz#5c13e96d0dc894686164f18965ecfe889ecfc8a9"
   dependencies:
     is-wsl "^1.1.0"
+
+openzeppelin-solidity@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/openzeppelin-solidity/-/openzeppelin-solidity-2.3.0.tgz#1ab7b4cc3782a5472ed61eb740c56a8bfdd74119"
+  integrity sha512-QYeiPLvB1oSbDt6lDQvvpx7k8ODczvE474hb2kLXZBPKMsxKT1WxTCHBYrCU7kS7hfAku4DcJ0jqOyL+jvjwQw==
 
 optimist@^0.6.1:
   version "0.6.1"
