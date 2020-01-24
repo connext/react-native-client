@@ -8,7 +8,7 @@ echo "2. Fix xmlhttprequest"
 TARGET="node_modules/xmlhttprequest/lib/XMLHttpRequest.js"
 sed -i'' -e 's/var spawn /\/\/var spawn/' $TARGET;
 
-# echo "3. Connext v2 fixes"
+echo "3. Connext v2 fixes"
 TARGET="node_modules/websocket-nats/lib/nats.js"
 # set default nats port
 sed -i'' -e 's/this.url = url;/this.url = url;this.url.port = 4222;/' $TARGET;
