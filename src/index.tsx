@@ -32,6 +32,7 @@ const encrypt = useEthCrypto ? EthCrypto.encrypt : encryptWithPublicKey;
 const decrypt = useEthCrypto ? EthCrypto.decrypt : decryptWithPrivateKey;
 
 async function testCrypto(channelWallet: ChannelWallet) {
+  console.log('[testCrypto]', 'useEthCrypto', useEthCrypto);
   const message = JSON.stringify({
     id: 1,
     jsonrpc: '2.0',

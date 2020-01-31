@@ -140,7 +140,7 @@ export async function encrypt(
   message: string,
 ): Promise<string> {
   const encryptedCipher = await encryptWithPublicKey(
-    publicKey.slice(2),
+    removeTrailing0x(publicKey),
     message,
   );
   const encrypted = stringify(encryptedCipher);
@@ -152,6 +152,9 @@ export async function decrypt(
   message: string,
 ): Promise<string> {
   const cipher = parse(message);
-  const decrypted = await decryptWithPrivateKey(privateKey, cipher);
+  const decrypted = await decryptWithPrivateKey(
+    removeTrailing0x(privateKey),
+    cipher,
+  );
   return decrypted;
 }
