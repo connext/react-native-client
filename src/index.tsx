@@ -8,36 +8,93 @@ import {
   TouchableHighlight,
   Linking,
 } from 'react-native';
-import { ethers } from 'ethers';
 import AsyncStorage from '@react-native-community/async-storage';
 import * as connext from '@connext/client';
 
 import Info from './components/Info';
 
-import { ChannelWallet, copyToClipboard, styles } from './helpers';
+import {
+  ChannelWallet,
+  copyToClipboard,
+  decryptWithPrivateKey,
+  styles,
+  encryptWithPublicKey,
+} from './helpers';
+
+import * as EthCrypto from './helpers/ethCrypto';
+
+const message = JSON.stringify({
+  id: 1,
+  jsonrpc: '2.0',
+  method: 'eth_blockNumber',
+  params: [],
+});
+
+async function testEthCrypto(channelWallet: ChannelWallet) {
+  console.log('[testEthCrypto]', 'message', message);
+
+  const encrypted = await EthCrypto.encrypt(channelWallet.publicKey, message);
+  console.log('[testEthCrypto]', 'encrypted', encrypted);
+
+  const decrypted = await EthCrypto.decrypt(
+    channelWallet.privateKey,
+    encrypted,
+  );
+  console.log('[testEthCrypto]', 'decrypted', decrypted);
+}
+
+async function testCrypto(channelWallet: ChannelWallet) {
+  console.log('[testCrypto]', 'message', message);
+
+  const encrypted = await encryptWithPublicKey(
+    channelWallet.publicKey,
+    message,
+  );
+  console.log('[testCrypto]', 'encrypted', encrypted);
+
+  const decrypted = await decryptWithPrivateKey(
+    channelWallet.privateKey,
+    encrypted,
+  );
+  console.log('[testCrypto]', 'decrypted', JSON.parse(decrypted));
+}
+
+const NETWORK = 'rinkeby';
+
+let shouldTestCrypto = true;
+const useEthCrypto = true;
+
+function createChannelWallet() {
+  const channelWallet = new ChannelWallet();
+  if (shouldTestCrypto) {
+    if (useEthCrypto) {
+      testEthCrypto(channelWallet);
+    } else {
+      testCrypto(channelWallet);
+    }
+    shouldTestCrypto = false;
+  }
+  return channelWallet;
+}
 
 const App = () => {
-  const [channelWallet] = useState(new ChannelWallet());
+  const [channelWallet] = useState(createChannelWallet());
   const [channel, setChannel] = useState(undefined as any);
-
-  const ethProviderUrl =
-    'https://rinkeby.indra.connext.network/api/ethprovider';
 
   useEffect(() => {
     const startConnext = async () => {
-      console.log('starting connext...');
-      console.log('store init-d, testing provider');
-      const provider = new ethers.providers.JsonRpcProvider(ethProviderUrl);
-      const network = (await provider.getNetwork()).name;
-      console.log(`got network: ${network}. testing connect...`);
+      console.log(`Starting Connext on ${NETWORK}...`);
+
       const xpub = channelWallet.xpub;
       const keyGen = (index: string) => channelWallet.keyGen(index);
-      const chan: any = await connext.connect(network, {
+
+      const chan: any = await connext.connect(NETWORK, {
         xpub,
         keyGen,
         asyncStorage: AsyncStorage,
       });
-      console.log('channel connected!');
+
+      console.log('Channel connected!');
 
       setChannel(chan);
     };
