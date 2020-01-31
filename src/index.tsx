@@ -23,55 +23,40 @@ import {
 
 import * as EthCrypto from './helpers/ethCrypto';
 
-const message = JSON.stringify({
-  id: 1,
-  jsonrpc: '2.0',
-  method: 'eth_blockNumber',
-  params: [],
-});
-
-async function testEthCrypto(channelWallet: ChannelWallet) {
-  console.log('[testEthCrypto]', 'message', message);
-
-  const encrypted = await EthCrypto.encrypt(channelWallet.publicKey, message);
-  console.log('[testEthCrypto]', 'encrypted', encrypted);
-
-  const decrypted = await EthCrypto.decrypt(
-    channelWallet.privateKey,
-    encrypted,
-  );
-  console.log('[testEthCrypto]', 'decrypted', decrypted);
-}
-
-async function testCrypto(channelWallet: ChannelWallet) {
-  console.log('[testCrypto]', 'message', message);
-
-  const encrypted = await encryptWithPublicKey(
-    channelWallet.publicKey,
-    message,
-  );
-  console.log('[testCrypto]', 'encrypted', encrypted);
-
-  const decrypted = await decryptWithPrivateKey(
-    channelWallet.privateKey,
-    encrypted,
-  );
-  console.log('[testCrypto]', 'decrypted', JSON.parse(decrypted));
-}
-
 const NETWORK = 'rinkeby';
 
 let shouldTestCrypto = true;
 const useEthCrypto = true;
 
+const encrypt = useEthCrypto ? EthCrypto.encrypt : encryptWithPublicKey;
+const decrypt = useEthCrypto ? EthCrypto.decrypt : decryptWithPrivateKey;
+
+async function testCrypto(channelWallet: ChannelWallet) {
+  const message = JSON.stringify({
+    id: 1,
+    jsonrpc: '2.0',
+    method: 'eth_blockNumber',
+    params: [],
+  });
+  console.log('[testCrypto]', 'message', message);
+
+  const publicKey = channelWallet.publicKey;
+  console.log('[testCrypto]', 'publicKey', publicKey);
+
+  const encrypted = await encrypt(publicKey, message);
+  console.log('[testCrypto]', 'encrypted', encrypted);
+
+  const privateKey = channelWallet.privateKey;
+  console.log('[testCrypto]', 'privateKey', privateKey);
+
+  const decrypted = await decrypt(privateKey, encrypted);
+  console.log('[testCrypto]', 'decrypted', JSON.parse(decrypted));
+}
+
 function createChannelWallet() {
   const channelWallet = new ChannelWallet();
   if (shouldTestCrypto) {
-    if (useEthCrypto) {
-      testEthCrypto(channelWallet);
-    } else {
-      testCrypto(channelWallet);
-    }
+    testCrypto(channelWallet);
     shouldTestCrypto = false;
   }
   return channelWallet;
