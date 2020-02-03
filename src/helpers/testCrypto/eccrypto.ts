@@ -1,7 +1,11 @@
 import { Buffer } from 'buffer';
 import * as eccrypto from 'eccrypto';
 
+const isomorphicCrypto = require('isomorphic-webcrypto');
+
 export async function testEccrypto() {
+  await isomorphicCrypto.ensureSecure();
+
   const privateKey = eccrypto.generatePrivate();
   console.log('[testEccrypto]', 'privateKey', privateKey.toString());
   const publicKey = eccrypto.getPublic(privateKey);

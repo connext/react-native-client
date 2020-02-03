@@ -32,6 +32,7 @@
     "ethers": "4.0.40",
     "events": "1.1.1",
     "https-browserify": "0.0.1",
+    "isomorphic-webcrypto": "2.3.2",
     "path-browserify": "0.0.0",
     "process": "0.11.10",
     "punycode": "1.4.1",

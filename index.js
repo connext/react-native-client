@@ -4,8 +4,22 @@
 // Import the required shims
 import 'ethers/dist/shims.js';
 
+const isomorphicCrypto = require('isomorphic-webcrypto');
 import { AppRegistry } from 'react-native';
 import App from './src';
-import { name as appName } from './app.json';
+import { name } from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+async function secureRandomValuesBeforeInit() {
+  if (!__DEV__) {
+    await isomorphicCrypto.ensureSecure();
+    const array = new Uint8Array(1);
+    isomorphicCrypto.getRandomValues(array);
+  }
+
+  /**
+   * Application entry point responsible for registering root component
+   */
+  AppRegistry.registerComponent(name, () => App);
+}
+
+secureRandomValuesBeforeInit();
