@@ -1090,7 +1090,7 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/eccrypto@1.1.1":
+"@types/eccrypto@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/eccrypto/-/eccrypto-1.1.1.tgz#f199d8da5f80c7fc3f3b02a0b4b775ac2877559c"
   integrity sha512-niDYN7XTQGKeH4+8C3vlzS7+rtTw40KTXUPd0IEscUOW2HbXMQME/TC7YJ1k8rnihvCUreQg6W2k5IsaXPxCzQ==
@@ -1162,13 +1162,6 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
-
-"@types/secp256k1@3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@types/secp256k1/-/secp256k1-3.5.0.tgz#0f3baf16b07488c6da2633a63b4160bcf8d0fd5b"
-  integrity sha512-ZE39QhkIaNK6xbKIp1VLN5O36r97LuslLmRnjAcT0sVDxcfvrk3zqp/VnIfmGza7J6jDxR8dIai3hsCxPYglPA==
-  dependencies:
-    "@types/node" "*"
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"

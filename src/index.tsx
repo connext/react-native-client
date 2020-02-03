@@ -13,70 +13,23 @@ import * as connext from '@connext/client';
 
 import Info from './components/Info';
 
-import {
-  ChannelWallet,
-  copyToClipboard,
-  decryptWithPrivateKey,
-  styles,
-  encryptWithPublicKey,
-} from './helpers';
+import { copyToClipboard, styles, getChannelWallet } from './helpers';
 
-import * as EthCrypto from './helpers/ethCrypto';
+import { testCrypto } from './helpers/testCrypto';
 
 const NETWORK = 'rinkeby';
 
-let shouldTestCrypto = true;
-const useEthCrypto = true;
-
-const encrypt = useEthCrypto ? EthCrypto.encrypt : encryptWithPublicKey;
-const decrypt = useEthCrypto ? EthCrypto.decrypt : decryptWithPrivateKey;
-
-async function testCrypto(channelWallet: ChannelWallet) {
-  console.log('[testCrypto]', 'useEthCrypto', useEthCrypto);
-  const message = JSON.stringify({
-    id: 1,
-    jsonrpc: '2.0',
-    method: 'eth_blockNumber',
-    params: [],
-  });
-  console.log('[testCrypto]', 'message', message);
-
-  const publicKey = channelWallet.publicKey;
-  console.log('[testCrypto]', 'publicKey', publicKey);
-
-  const encrypted = await encrypt(publicKey, message);
-  console.log('[testCrypto]', 'encrypted', encrypted);
-
-  const privateKey = channelWallet.privateKey;
-  console.log('[testCrypto]', 'privateKey', privateKey);
-
-  const decrypted = await decrypt(privateKey, encrypted);
-  console.log('[testCrypto]', 'decrypted', JSON.parse(decrypted));
-}
-
-function createChannelWallet() {
-  const channelWallet = new ChannelWallet();
-  if (shouldTestCrypto) {
-    testCrypto(channelWallet);
-    shouldTestCrypto = false;
-  }
-  return channelWallet;
-}
-
 const App = () => {
-  const [channelWallet] = useState(createChannelWallet());
+  const [channelWallet] = useState(getChannelWallet());
   const [channel, setChannel] = useState(undefined as any);
 
   useEffect(() => {
     const startConnext = async () => {
       console.log(`Starting Connext on ${NETWORK}...`);
 
-      const xpub = channelWallet.xpub;
-      const keyGen = (index: string) => channelWallet.keyGen(index);
-
-      const chan: any = await connext.connect(NETWORK, {
-        xpub,
-        keyGen,
+      const chan = await connext.connect(NETWORK, {
+        xpub: channelWallet.xpub,
+        keyGen: (index: string) => channelWallet.keyGen(index),
         asyncStorage: AsyncStorage,
       });
 
@@ -85,6 +38,7 @@ const App = () => {
       setChannel(chan);
     };
     startConnext();
+    testCrypto(channelWallet.publicKey, channelWallet.privateKey);
   }, [channelWallet]);
 
   return (
