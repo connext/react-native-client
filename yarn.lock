@@ -5520,7 +5520,7 @@ react-native-browser-polyfill@0.1.2:
   resolved "https://registry.yarnpkg.com/react-native-browser-polyfill/-/react-native-browser-polyfill-0.1.2.tgz#d2c4e816e7a1d91bc314400a1b0a9795a91b8bcd"
   integrity sha1-0sToFueh2RvDFEAKGwqXlakbi80=
 
-react-native-crypto@^2.2.0:
+react-native-crypto@2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/react-native-crypto/-/react-native-crypto-2.2.0.tgz#c999ed7c96064f830e1f958687f53d0c44025770"
   integrity sha512-eZu9Y8pa8BN9FU2pIex7MLRAi+Cd1Y6bsxfiufKh7sfraAACJvjQTeW7/zcQAT93WMfM+D0OVk+bubvkrbrUkw==
@@ -5544,15 +5544,15 @@ react-native-level-fs@3.0.1:
     level-filesystem "^1.0.1"
     levelup "^0.18.2"
 
-react-native-os@1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/react-native-os/-/react-native-os-1.2.6.tgz#1bb16d78ccad1143972183a04f443cf1af9fbefa"
-  integrity sha512-OlT+xQAcvkcnf7imgXiu+myMkqDt4xw2bP5SlVo19hEn5XHBkPMLX7dk3sSGxxncH/ToMDsf1KLyrPabNVtadA==
+react-native-os@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-os/-/react-native-os-1.2.2.tgz#402cee00ac00a0588200a66b90e1d2b5a593fec0"
+  integrity sha512-LfA6bip2P1kKgexvNL26TaIKYrJIdc/xlRZ7WAgi+19s+qq/+l9mk897EDNXgmue/8tRJk55GjlGd709AJY9XA==
 
-react-native-randombytes@^3.5.3:
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/react-native-randombytes/-/react-native-randombytes-3.5.3.tgz#b3bdcd11473cce106551a586244b98855e443cd1"
-  integrity sha512-n/7QwMrRJxHr+/3mt2KxqqacGylM+ssW+FfBTgXGzvwq5KzSohooEWf6Z6MTSByuJ/izP9VbSPtwomPwzvupKQ==
+react-native-randombytes@3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/react-native-randombytes/-/react-native-randombytes-3.5.2.tgz#f23665b7cf1a3125d78d0d95df5d18c2ca9406a0"
+  integrity sha512-jD93Foc/fLZwgVbUHtbstH0d9BDVu/s8WsHfQRLR6VFC6WrVdoED2YvEJCqJotp17ySe3H9PWp3oXLlmYCSRLA==
   dependencies:
     buffer "^4.9.1"
     sjcl "^1.0.3"
