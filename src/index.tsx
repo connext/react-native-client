@@ -15,9 +15,6 @@ import Info from './components/Info';
 
 import { copyToClipboard, styles, getChannelWallet } from './helpers';
 
-import { testCrypto } from './helpers/testCrypto';
-// import { testEccrypto } from './helpers/testCrypto/eccrypto';
-
 const NETWORK = 'rinkeby';
 
 const App = () => {
@@ -39,7 +36,6 @@ const App = () => {
       setChannel(chan);
     };
     startConnext();
-    testCrypto(channelWallet.publicKey, channelWallet.privateKey);
     // testEccrypto();
   }, [channelWallet]);
 

@@ -1,6 +1,6 @@
 {
   "name": "ConnextReactNative",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "android": "node_modules/.bin/react-native run-android",
@@ -15,8 +15,8 @@
     "clean:ios": "cd ios && rm -rf build && pod cache clean --all && rm -rf Pods && cd .."
   },
   "dependencies": {
-    "@connext/client": "4.0.7",
-    "@connext/types": "4.0.7",
+    "@connext/client": "4.1.0",
+    "@connext/types": "4.1.0",
     "@react-native-community/async-storage": "1.7.1",
     "@tradle/react-native-http": "2.0.1",
     "assert": "1.5.0",
@@ -32,7 +32,6 @@
     "ethers": "4.0.40",
     "events": "1.1.1",
     "https-browserify": "0.0.1",
-    "isomorphic-webcrypto": "2.3.2",
     "path-browserify": "0.0.0",
     "process": "0.11.10",
     "punycode": "1.4.1",
