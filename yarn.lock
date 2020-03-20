@@ -698,42 +698,47 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@connext/cf-core@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@connext/cf-core/-/cf-core-4.1.0.tgz#8298638df489927529968614dececbd6b1678eba"
-  integrity sha512-n50/N5Iv/gU/rxhPN8UuZV6pk6dbuAie/0HyJk/xxLhqXbHUcQtoiAJnKrh0nBL4R/qnkXU3EGPUmL7Oc5XsqA==
+"@connext/apps@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@connext/apps/-/apps-5.2.1.tgz#bebceb32ba0b67aa825d37b7acf8b49243eb2d5d"
+  integrity sha512-y84rX2ZP3hDZTrpaDnh7++U8UPkR6g/zq6LNgubrzdTBF/MdJjoA04W29mVlNpLdPFpxdmNt0ReF0fUou0ll1g==
+
+"@connext/cf-core@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@connext/cf-core/-/cf-core-5.2.1.tgz#d44c557449fa15f677f8afd947163b7e5d3a198c"
+  integrity sha512-47iR20J/KFmMODmASomY/o2F39ZwJ9YVuupvDbfqnOioXFmf1dMP/jG2OdNGsQXwBL8mZDVUfO0feni29w0/Cg==
   dependencies:
-    "@connext/contracts" "1.0.4"
-    "@connext/types" "4.1.0"
+    "@connext/contracts" "1.0.5"
+    "@connext/types" "5.2.1"
     "@openzeppelin/contracts" "2.5.0"
     ethers "4.0.45"
     eventemitter3 "4.0.0"
-    loglevel "1.6.7"
     memoizee "0.4.14"
     p-queue "5.0.0"
     rpc-server "0.0.1"
     typescript-memoize "1.0.0-alpha.3"
     uuid "3.4.0"
 
-"@connext/channel-provider@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@connext/channel-provider/-/channel-provider-4.1.0.tgz#ef4a44998867018430d8daedf831d67389439888"
-  integrity sha512-1MLttdDs3i2ZCq+xBTH+OtgS+VCZZXiI2Ko16zuqLDvwz7J19pxvTaM5VeWfBdD1c+ltITn3sZJnt+KpMQebZQ==
+"@connext/channel-provider@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@connext/channel-provider/-/channel-provider-5.2.1.tgz#6f0bd2d524498c32bb873aa2b303c880585b98a4"
+  integrity sha512-udQ2DLWo83EilyTe0IOwN/ignSi6usmHIRq3TYXoaFvRwWiNDMUkKNrUqBz+Jc2NSq/y9u5SVfgr8KeAIed3Sg==
   dependencies:
-    "@connext/types" "4.1.0"
+    "@connext/types" "5.2.1"
     eventemitter3 "4.0.0"
 
-"@connext/client@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@connext/client/-/client-4.1.0.tgz#9d9ff0d2ea9e447d52396db4006e7b3416cc0a37"
-  integrity sha512-/7hrWLHQVPBnUS30RWqiU2MlB8qj7eQ/XlgXYGobucLQyQWPApJpfcXJtL9FBHOyHFh+XGWuy94jw5JJ5ZSIIg==
+"@connext/client@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@connext/client/-/client-5.2.1.tgz#eacf4844dbb2acacdb248afd3f33d554224fb03b"
+  integrity sha512-bzNWb6kqZC2B0dw5n1hBXafLU42wd+eISBfbPOd1Yx0n2oLUvYirgYLNfM8+JeDN5IGWIt3ib6JIL3QRgH9X0A==
   dependencies:
-    "@connext/cf-core" "4.1.0"
-    "@connext/channel-provider" "4.1.0"
-    "@connext/crypto" "4.1.0"
-    "@connext/messaging" "4.1.0"
-    "@connext/store" "4.1.0"
-    "@connext/types" "4.1.0"
+    "@connext/apps" "5.2.1"
+    "@connext/cf-core" "5.2.1"
+    "@connext/channel-provider" "5.2.1"
+    "@connext/crypto" "5.2.1"
+    "@connext/messaging" "5.2.1"
+    "@connext/store" "5.2.1"
+    "@connext/types" "5.2.1"
     core-js "3.6.4"
     eccrypto "1.1.3"
     ethers "4.0.45"
@@ -744,54 +749,56 @@
     secp256k1 "3.8.0"
     uuid "3.4.0"
 
-"@connext/contracts@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@connext/contracts/-/contracts-1.0.4.tgz#ddad1ef7f1561d79862f8557cc4b65a6c980f9d4"
-  integrity sha512-7MwMOZYZdqAjztlWK7i9kY8aM23I4dWUnf0tju6lsCtaLtsw+/YpczNqKEy2IROj9EufgJp4Otby/y7xEyeDIA==
+"@connext/contracts@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@connext/contracts/-/contracts-1.0.5.tgz#271552ce68bf482a70b6164c418965d8e2328b59"
+  integrity sha512-RcRtUmB8ERtnjG+HruUC6FTIa3ZW6mrIzExEZL1qp5xdAR09ZhPNDDr/r0awcMZhzacF8y0QUsNvm8h7grGt5A==
   dependencies:
-    "@connext/types" "4.0.4"
-    ethers "4.0.41"
-    ganache-cli "6.7.0"
-    openzeppelin-solidity "2.3.0"
+    "@connext/types" "5.0.2"
+    "@openzeppelin/contracts" "2.5.0"
+    ethers "4.0.45"
+    ganache-cli "6.8.2"
+    solc "0.5.11"
 
-"@connext/crypto@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@connext/crypto/-/crypto-4.1.0.tgz#3f51b53a25d10ae1383a1987b6f9b3ac38953e62"
-  integrity sha512-TncG6HDJWMRC45BDB7HWbSNwUY5HkqbF5z/bhszAtRApep0d/gGUorplLlp/ziRTri4FN87eCDG30lJ1ws817A==
+"@connext/crypto@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@connext/crypto/-/crypto-5.2.1.tgz#1d2a2d97c36e283b26e47a9edce148315e667e8b"
+  integrity sha512-b8ZAbWVNLw0+xbeyn1lgpF8Y5L5TFaKsh5qrMwALAa5YB3Eh4NWfYh4SlgunQpHgvGWfGtowa6SSYLN2S09ENw==
   dependencies:
-    "@connext/types" "4.1.0"
-    eccrypto-js "4.3.5"
+    "@connext/types" "5.2.1"
+    eccrypto-js "4.4.0"
 
-"@connext/messaging@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@connext/messaging/-/messaging-4.1.0.tgz#302d584df5b96454b3e396f4b666769575803d33"
-  integrity sha512-CEfZR1rnN1I1ewPB+9ZqKnjpKk7MUzZ5jUMmCE/30302PzxTvjZwIOyXi5Xos7NS8dgJANXjHzC15kDFhJblJQ==
+"@connext/messaging@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@connext/messaging/-/messaging-5.2.1.tgz#00aa6e55bb6d8ccd9392fc12efc028549326bc44"
+  integrity sha512-oaI8UWckRpxyZyXFI1aG6Rg5LwOzh/bSxJtgY1r0eNEgHedSJTKEeXy+nsqmdP4P7FlyK/nT8dX91V3R+a9Xbg==
   dependencies:
-    "@connext/types" "4.1.0"
+    "@connext/types" "5.2.1"
     ts-nats "1.2.4"
     websocket-nats "0.3.3"
 
-"@connext/store@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@connext/store/-/store-4.1.0.tgz#b18fb5e7e23cc10404548cc0609f7b8ca5cda268"
-  integrity sha512-tf3PdCi2aWeTftf5Szke2UWb0LO2n3n6Z/JDPMqDZWrPVouqZ0hjbN9E3gWnEMlHcS3uUZkW2MfU1h6S0AzJlg==
+"@connext/store@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@connext/store/-/store-5.2.1.tgz#9f63e9e249a8687ed614443b4e5bf46c2c1a9f83"
+  integrity sha512-so5/65J1Cdic3ILqg6+21JWX8M9FH+ss0sbyZr34+/BCw7rHai00CLR11aU6z4dLxV5d03eUi1WG8LPUvWPI5Q==
   dependencies:
-    "@connext/types" "4.1.0"
+    "@connext/types" "5.2.1"
     ethers "4.0.45"
     pisa-client "0.1.4-connext-beta.1"
     uuid "3.4.0"
 
-"@connext/types@4.0.4":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@connext/types/-/types-4.0.4.tgz#11d8d60eaef69f412cb97d311c0c2f0eaf27dd28"
-  integrity sha512-Wp2EICYUWkYmQXiAr58CsUYKeMlfQLZEPlgN7OxnsM6Jdy0Q1iQHF7CTZkwufHu5gPKSxweB83jCvh5HKY4BOg==
+"@connext/types@5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@connext/types/-/types-5.0.2.tgz#fdbe83f537ef3ce9db96b4d26b678cca550450bf"
+  integrity sha512-8vpTLsaf7M4GPLKSZex1+MKI43rAIhYNz3+cv9B6+0zcvNhSXc+mez/X6tFQ4L8C/32YpWspHOT66SacGb38mA==
   dependencies:
-    ethers "4.0.41"
+    ethers "4.0.45"
+    eventemitter3 "4.0.0"
 
-"@connext/types@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@connext/types/-/types-4.1.0.tgz#8959b5e7de878821439ac815f152dd76dc7291dc"
-  integrity sha512-P/dBRCD9VKCRUFMiOZFZeMReyL+mUpxhNyurON+XJk22hj+H1iPXOlEToyNnKMQ4lQtilCNNTiHV9+0pPfWpgA==
+"@connext/types@5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@connext/types/-/types-5.2.1.tgz#b712055f58d1deb2de26dc30b91feab49cc1dbc3"
+  integrity sha512-389seUknDCNeZGFFe8Mx5qz0Xb9JIFRvG3/9tLFFnzepdaYTI9/Ve4FxwiVlUPmivsfyQyqqUDlTXzndh5eWAA==
   dependencies:
     ethers "4.0.45"
     eventemitter3 "4.0.0"
@@ -2405,10 +2412,10 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-eccrypto-js@4.3.5:
-  version "4.3.5"
-  resolved "https://registry.yarnpkg.com/eccrypto-js/-/eccrypto-js-4.3.5.tgz#4f5c0c21f45b8a185ca45bf518656572fa22de23"
-  integrity sha512-Fuus3sIfJiyNuPykNwI3ekju2RS03YTjbfkBuUjiMEP2ZfA4jfbCS7NS2aRWVE0Imdraa3v3LsyZFBYg6NZLBQ==
+eccrypto-js@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/eccrypto-js/-/eccrypto-js-4.4.0.tgz#0b91ea0c64e80822308c736707c316020f2773a8"
+  integrity sha512-TTDKh6N7qeU9uyoFnghy59NKfRbm9LEZncAEt9oHaNoWFYMak+8Cuq9eO7rm1W765nEQqG8fZSmBaF4bBHTCcA==
   dependencies:
     aes-js "3.1.2"
     hash.js "1.1.7"
@@ -2760,20 +2767,6 @@ ethers@4.0.40:
   version "4.0.40"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-4.0.40.tgz#6e1963d10b5d336a13cd81b519c230cc17624653"
   integrity sha512-MC9BtV7Hpq4dgFONEfanx9aU9GhhoWU270F+/wegHZXA7FR+2KXFdt36YIQYLmVY5ykUWswDxd+f9EVkIa7JOA==
-  dependencies:
-    aes-js "3.0.0"
-    bn.js "^4.4.0"
-    elliptic "6.5.2"
-    hash.js "1.1.3"
-    js-sha3 "0.5.7"
-    scrypt-js "2.0.4"
-    setimmediate "1.0.4"
-    uuid "2.0.1"
-    xmlhttprequest "1.8.0"
-
-ethers@4.0.41:
-  version "4.0.41"
-  resolved "https://registry.yarnpkg.com/ethers/-/ethers-4.0.41.tgz#a0cff526f08c2e08c525cf82ef4483f6333b8000"
   dependencies:
     aes-js "3.0.0"
     bn.js "^4.4.0"
@@ -3167,6 +3160,17 @@ fs-extra@^0.22.1:
     jsonfile "^2.1.0"
     rimraf "^2.2.8"
 
+fs-extra@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.30.0.tgz#f233ffcc08d4da7d432daa449776989db1df93f0"
+  integrity sha1-8jP/zAjU2n1DLapEl3aYnbHfk/A=
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^2.1.0"
+    klaw "^1.0.0"
+    path-is-absolute "^1.0.0"
+    rimraf "^2.2.8"
+
 fs-extra@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-1.0.0.tgz#cd3ce5f7e7cb6145883fcae3191e9877f8587950"
@@ -3208,10 +3212,10 @@ fwd-stream@^1.0.4:
   dependencies:
     readable-stream "~1.0.26-4"
 
-ganache-cli@6.7.0:
-  version "6.7.0"
-  resolved "https://registry.yarnpkg.com/ganache-cli/-/ganache-cli-6.7.0.tgz#b59845578221bdf686cf124d007c5ee62e85a62f"
-  integrity sha512-9CZsClo9hl5MxGL7hkk14mie89Q94P0idh92jcV7LmppTYTCG7SHatuwcfqN7emFHArMt3fneN4QbH2do2N6Ow==
+ganache-cli@6.8.2:
+  version "6.8.2"
+  resolved "https://registry.yarnpkg.com/ganache-cli/-/ganache-cli-6.8.2.tgz#357b5ea93f013a7f0fce4ede1b8bec8613e95dd3"
+  integrity sha512-FgsJx/hHh7A1/fmSQpNT5jxZ3dYEal4zQMqYyA8Bm7S6MgrVO48hIjnROn2JteubHY8Rob8LzxMkhEvoQce7WA==
   dependencies:
     ethereumjs-util "6.1.0"
     source-map-support "0.5.12"
@@ -4440,11 +4444,6 @@ logkitty@^0.6.0:
     dayjs "^1.8.15"
     yargs "^12.0.5"
 
-loglevel@1.6.7:
-  version "1.6.7"
-  resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.6.7.tgz#b3e034233188c68b889f5b862415306f565e2c56"
-  integrity sha512-cY2eLFrQSAfVPhCgH1s7JI73tMbg9YC3v3+ZHVW67sBS7UxWzNEk/ZBbSfLykBWHp33dqqtOv82gjhKEi81T/A==
-
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
@@ -4531,6 +4530,11 @@ memoizee@0.4.14:
     lru-queue "0.1"
     next-tick "1"
     timers-ext "^0.1.5"
+
+memorystream@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/memorystream/-/memorystream-0.3.1.tgz#86d7090b30ce455d63fbae12dda51a47ddcaf9b2"
+  integrity sha1-htcJCzDORV1j+64S3aUaR93K+bI=
 
 merge-stream@^1.0.1:
   version "1.0.1"
@@ -5132,11 +5136,6 @@ open@^6.2.0:
   resolved "https://registry.yarnpkg.com/open/-/open-6.4.0.tgz#5c13e96d0dc894686164f18965ecfe889ecfc8a9"
   dependencies:
     is-wsl "^1.1.0"
-
-openzeppelin-solidity@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/openzeppelin-solidity/-/openzeppelin-solidity-2.3.0.tgz#1ab7b4cc3782a5472ed61eb740c56a8bfdd74119"
-  integrity sha512-QYeiPLvB1oSbDt6lDQvvpx7k8ODczvE474hb2kLXZBPKMsxKT1WxTCHBYrCU7kS7hfAku4DcJ0jqOyL+jvjwQw==
 
 optimist@^0.6.1:
   version "0.6.1"
@@ -5881,6 +5880,11 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
 
+require-from-string@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
+  integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
+
 require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
@@ -6260,6 +6264,20 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
+solc@0.5.11:
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/solc/-/solc-0.5.11.tgz#5905261191d01befd78ef52610a006820022ee8f"
+  integrity sha512-F8avCCVDYnJzvIm/ITsU11GFNdFI4HaNsME+zw9lK5a3ojD3LZN2Op2cIfWg7w1HeRYRiMOU1dM77saX6jUIKw==
+  dependencies:
+    command-exists "^1.2.8"
+    fs-extra "^0.30.0"
+    js-sha3 "0.8.0"
+    memorystream "^0.3.1"
+    require-from-string "^2.0.0"
+    semver "^5.5.0"
+    tmp "0.0.33"
+    yargs "^13.2.0"
+
 source-map-resolve@^0.5.0:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/source-map-resolve/-/source-map-resolve-0.5.2.tgz#72e2cc34095543e43b2c62b2c4c10d4a9054f259"
@@ -6565,9 +6583,10 @@ tiny-queue@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/tiny-queue/-/tiny-queue-0.2.0.tgz#c49fcb5c87555be1b4a5df7eb87101d5b78bc9dc"
 
-tmp@^0.0.33:
+tmp@0.0.33, tmp@^0.0.33:
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
+  integrity sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==
   dependencies:
     os-tmpdir "~1.0.2"
 
@@ -7085,6 +7104,14 @@ yargs-parser@^13.1.0, yargs-parser@^13.1.1:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
+yargs-parser@^13.1.2:
+  version "13.1.2"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-13.1.2.tgz#130f09702ebaeef2650d54ce6e3e5706f7a4fb38"
+  integrity sha512-3lbsNRf/j+A4QuSZfDRA7HRSfWrzO0YjqTJd5kjAq37Zep1CEgaYmrH9Q3GwPiB9cHyd1Y1UwggGhJGoxipbzg==
+  dependencies:
+    camelcase "^5.0.0"
+    decamelize "^1.2.0"
+
 yargs-parser@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-7.0.0.tgz#8d0ac42f16ea55debd332caf4c4038b3e3f5dfd9"
@@ -7124,6 +7151,22 @@ yargs@^12.0.5:
     which-module "^2.0.0"
     y18n "^3.2.1 || ^4.0.0"
     yargs-parser "^11.1.1"
+
+yargs@^13.2.0:
+  version "13.3.2"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-13.3.2.tgz#ad7ffefec1aa59565ac915f82dccb38a9c31a2dd"
+  integrity sha512-AX3Zw5iPruN5ie6xGRIDgqkT+ZhnRlZMLMHAs8tg7nRruy2Nb+i5o9bwghAogtM08q1dpr2LVoS8KSTMYpWXUw==
+  dependencies:
+    cliui "^5.0.0"
+    find-up "^3.0.0"
+    get-caller-file "^2.0.1"
+    require-directory "^2.1.1"
+    require-main-filename "^2.0.0"
+    set-blocking "^2.0.0"
+    string-width "^3.0.0"
+    which-module "^2.0.0"
+    y18n "^4.0.0"
+    yargs-parser "^13.1.2"
 
 yargs@^13.3.0:
   version "13.3.0"

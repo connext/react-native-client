@@ -28,7 +28,7 @@ const App = () => {
       const chan = await connext.connect(NETWORK, {
         xpub: channelWallet.xpub,
         keyGen: (index: string) => channelWallet.keyGen(index),
-        asyncStorage: AsyncStorage,
+        asyncStorage: AsyncStorage as any,
       });
 
       console.log('Channel connected!');
