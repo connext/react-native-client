@@ -12,21 +12,17 @@ This project was created using the Getting Started react native guide. Follow th
 
 To run the app:
 
-```bash
+```sh
 # in the root directory
 npm install
+
 # if you are developing for ios
 npm run ios
+
 # if you are developing for android
 npm run android
 ```
 
 ### Important notes
 
-The Connext-specific bits are in `index.js`, `post-install.sh`, and `store.js`.
-
-- `store.js` contains an `AsyncStorage` based implementation of a Connext compatible key-value store
-
-- `index.js` uses the [isomorphic-webcrypto](https://github.com/kevlened/isomorphic-webcrypto) library to ensure secure cryptographic functions in react native implementations.
-
-- `post-install.sh` performs some connext (and related dependencies) specific adjustments to ensure the project builds successfully
+There are Connext-specific bits on `post-install.sh` that perform some connext (and related dependencies) specific adjustments to ensure the project builds successfully
