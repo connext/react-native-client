@@ -10,25 +10,29 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import * as connext from '@connext/client';
+import { ConnextStore } from '@connext/store';
 
 import Info from './components/Info';
 
-import { copyToClipboard, styles, getChannelWallet } from './helpers';
+import { copyToClipboard, styles } from './helpers';
+import { Wallet } from 'ethers';
+import { StoreTypes } from '@connext/types';
 
 const NETWORK = 'rinkeby';
 
 const App = () => {
-  const [channelWallet] = useState(getChannelWallet());
+  const [wallet] = useState(Wallet.createRandom());
   const [channel, setChannel] = useState(undefined as any);
 
   useEffect(() => {
     const startConnext = async () => {
       console.log(`Starting Connext on ${NETWORK}...`);
-
+      const store = new ConnextStore(StoreTypes.AsyncStorage, {
+        storage: AsyncStorage,
+      });
       const chan = await connext.connect(NETWORK, {
-        xpub: channelWallet.xpub,
-        keyGen: (index: string) => channelWallet.keyGen(index),
-        asyncStorage: AsyncStorage as any,
+        signer: wallet.privateKey,
+        store,
       });
 
       console.log('Channel connected!');
@@ -36,8 +40,7 @@ const App = () => {
       setChannel(chan);
     };
     startConnext();
-    // testEccrypto();
-  }, [channelWallet]);
+  }, [wallet]);
 
   return (
     <>
@@ -57,11 +60,11 @@ const App = () => {
                   style={styles.highlight}
                   onPress={() =>
                     copyToClipboard(
-                      channelWallet.mnemonic,
+                      wallet.mnemonic,
                       'Copied mnemonic to clipboard',
                     )
                   }>
-                  {channelWallet.mnemonic}
+                  {wallet.mnemonic}
                 </Text>
               </View>
             </View>
