@@ -6,7 +6,7 @@
     "android": "node_modules/.bin/react-native run-android",
     "ios": "node_modules/.bin/react-native run-ios",
     "start": "node_modules/.bin/react-native start",
-    "clean-start": "yarn run clean:metro && node_modules/.bin/react-native start",
+    "start:clean": "yarn run clean:metro && node_modules/.bin/react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "postinstall": "bash ops/post-install.sh",
@@ -15,8 +15,8 @@
     "clean:ios": "cd ios && rm -rf build && pod cache clean --all && rm -rf Pods && cd .."
   },
   "dependencies": {
-    "@connext/client": "6.0.4",
-    "@connext/types": "6.0.4",
+    "@connext/client": "6.0.6",
+    "@connext/types": "6.0.6",
     "@react-native-community/async-storage": "1.7.1",
     "@tradle/react-native-http": "2.0.1",
     "assert": "1.5.0",
