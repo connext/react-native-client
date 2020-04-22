@@ -84,8 +84,8 @@ const App = () => {
                     numberOfLines={1}
                   />
                   <Info
-                    label={'Free Balance Address'}
-                    data={channel.freeBalanceAddress}
+                    label={'Signer Address'}
+                    data={channel.signerAddress}
                     numberOfLines={1}
                   />
                 </View>
