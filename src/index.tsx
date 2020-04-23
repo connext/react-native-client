@@ -7,6 +7,7 @@ import {
   StatusBar,
   TouchableHighlight,
   Linking,
+  unstable_enableLogBox,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import * as connext from '@connext/client';
@@ -17,6 +18,10 @@ import Info from './components/Info';
 import { copyToClipboard, styles } from './helpers';
 import { Wallet } from 'ethers';
 import { StoreTypes } from '@connext/types';
+
+if (__DEV__) {
+  unstable_enableLogBox();
+}
 
 const NETWORK = 'Rinkeby';
 
