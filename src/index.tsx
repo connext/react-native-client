@@ -18,7 +18,7 @@ import { copyToClipboard, styles } from './helpers';
 import { Wallet } from 'ethers';
 import { StoreTypes } from '@connext/types';
 
-const NETWORK = 'rinkeby';
+const NETWORK = 'Rinkeby';
 
 const App = () => {
   const [wallet] = useState(Wallet.createRandom());
@@ -30,11 +30,9 @@ const App = () => {
       const store = new ConnextStore(StoreTypes.AsyncStorage, {
         storage: AsyncStorage,
       });
-      const chan = await connext.connect(NETWORK, {
-        signer: wallet.privateKey,
-        store,
-      });
-
+      const signer = wallet.privateKey;
+      const network = NETWORK.toLowerCase();
+      const chan = await connext.connect(network, { signer, store });
       console.log('Channel connected!');
 
       setChannel(chan);
@@ -58,6 +56,8 @@ const App = () => {
                 </Text>
                 <Text
                   style={styles.highlight}
+                  adjustsFontSizeToFit
+                  numberOfLines={2}
                   onPress={() =>
                     copyToClipboard(
                       wallet.mnemonic,
@@ -72,11 +72,11 @@ const App = () => {
               <Text style={styles.sectionTitle}>{'Channel Information'}</Text>
               {channel ? (
                 <View>
-                  <Info label={'Network'} data={'Rinkeby'} numberOfLines={1} />
+                  <Info label={'Network'} data={NETWORK} numberOfLines={1} />
                   <Info
                     label={'Public Identifier'}
                     data={channel.publicIdentifier}
-                    numberOfLines={3}
+                    numberOfLines={2}
                   />
                   <Info
                     label={'Multisig Address'}
