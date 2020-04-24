@@ -13,14 +13,14 @@ This project was created using the Getting Started react native guide. Follow th
 To run the app:
 
 ```sh
-# in the root directory
-npm install
+# install dependencies
+yarn
 
-# if you are developing for ios
-npm run ios
+# run metro bundler
+yarn start:clean
 
-# if you are developing for android
-npm run android
+# open XCode and run
+open ios/ConnextReactNative.xcworkspace
 ```
 
 ### Important notes
