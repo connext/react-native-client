@@ -1,13 +1,16 @@
 #!/bin/bash
 echo "PostInstall script:"
 
-echo "1. React Native nodeify..."
+echo "1. Nodeify react-native"
 node_modules/.bin/rn-nodeify --install --hack
 
-echo "2. Fix xmlhttprequest"
-TARGET="node_modules/xmlhttprequest/lib/XMLHttpRequest.js"
-sed -i'' -e 's/var spawn /\/\/var spawn/' $TARGET;
+echo "2. Patch node modules"
+npx patch-package
 
 echo "3. Remove TCPSocket logs"
 TARGET="node_modules/react-native-tcp/TcpSocket.js"
 sed -i'' -e 's/console.log.apply(console, args);//' $TARGET;
+
+echo "4. Install pod modules"
+cd ios 
+pod install

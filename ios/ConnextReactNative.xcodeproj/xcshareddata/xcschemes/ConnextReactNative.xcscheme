@@ -39,8 +39,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -62,7 +60,7 @@
             ReferencedContainer = "container:ConnextReactNative.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-=   </LaunchAction>
+   </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"

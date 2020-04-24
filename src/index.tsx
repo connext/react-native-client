@@ -10,14 +10,14 @@ import {
   unstable_enableLogBox,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import { Wallet } from 'ethers';
 import * as connext from '@connext/client';
 import { ConnextStore } from '@connext/store';
+import { StoreTypes } from '@connext/types';
 
 import Info from './components/Info';
 
 import { copyToClipboard, styles } from './helpers';
-import { Wallet } from 'ethers';
-import { StoreTypes } from '@connext/types';
 
 if (__DEV__) {
   unstable_enableLogBox();
