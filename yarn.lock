@@ -700,19 +700,19 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@connext/apps@6.0.9":
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/@connext/apps/-/apps-6.0.9.tgz#0800b94b92a0e6247760e0255a857fff3776b968"
-  integrity sha512-HNbwHIxQCvZTEeAHH33aar+O0z+pAmmuuQNfnMYUcyQEZnjmmUr1bG1LdLFGdIJyfnw6wNe1zApqBiikp0X8DA==
+"@connext/apps@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@connext/apps/-/apps-6.1.2.tgz#8967c1b723e5fc1572c8e316d2d5f6ffc639a27c"
+  integrity sha512-wYqhCan6gggD6bkN+MgbL4ttwKKmw7xdP13NoOO464WzJHyEImtKhS4+deSAC/L9sVyO863d/e1wuvaaXsDQVA==
 
-"@connext/cf-core@6.0.9":
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/@connext/cf-core/-/cf-core-6.0.9.tgz#7e8bfe6d5fca9641e6f66c627d3bd51adb1a9545"
-  integrity sha512-kXZgLwLONdbHOaAa0E6g2d3DaY1KY7TMG0n8kgSAsW7smr30NBaNN6yIEVxTsF2VqNiulz10/WkKCXFxi5Y6Gg==
+"@connext/cf-core@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@connext/cf-core/-/cf-core-6.1.2.tgz#d00c41497a719d08609b27ca1dc905d6b1dc6b50"
+  integrity sha512-2wmwtZzdiXvCm9QQcV8i7bVpV+hRZWei2sKCG7b5s3LB1tKhHwh6ZyG8WRSquipAzYhBzypxZVu5Bw62aSIsEw==
   dependencies:
     "@connext/contracts" "2.0.2"
-    "@connext/types" "6.0.9"
-    "@connext/utils" "6.0.9"
+    "@connext/types" "6.1.2"
+    "@connext/utils" "6.1.2"
     "@openzeppelin/contracts" "2.5.0"
     ethers "4.0.47"
     eventemitter3 "4.0.0"
@@ -722,27 +722,27 @@
     typescript-memoize "1.0.0-alpha.3"
     uuid "7.0.3"
 
-"@connext/channel-provider@6.0.9":
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/@connext/channel-provider/-/channel-provider-6.0.9.tgz#0f363a201e51e60aa09b622a140caf0d43f0a0cd"
-  integrity sha512-2IjJqoQmR/Eszh5DQVFnFZkBFdeimRHQm02crhltgxFo1j/ZjA8Aox9xEcT8GqyxzMdl/es6b9WgUMK4MWojgQ==
+"@connext/channel-provider@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@connext/channel-provider/-/channel-provider-6.1.2.tgz#3ef6008038c32063d6b3bb068e8e452b538606ed"
+  integrity sha512-NyPZJESMIMxHxhCffKMOAQocJWOiD1g2z7BeQF+VB38qWAxU9oNsMtquoVf+3Y6pCMkOCmAD2oD7k1ccuHaKCQ==
   dependencies:
-    "@connext/types" "6.0.9"
+    "@connext/types" "6.1.2"
     eventemitter3 "4.0.0"
 
-"@connext/client@6.0.9":
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/@connext/client/-/client-6.0.9.tgz#d72fef698aed414b04e9f95d1d2ebd76201ca0af"
-  integrity sha512-3EMDL4e6mjFW2r3U2CvV6fTRygMzO1reaqslWdYVEnIDibyEiHaZP7+r/LIGQG7z2b76neZi9Dlp/AXJxzvyAA==
+"@connext/client@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@connext/client/-/client-6.1.2.tgz#d36285f433596d933920f7673759689c8c4605dc"
+  integrity sha512-o6llx8m/IR6FdzW0pkPH4oH+TeP/xKFs4fVnZqHb6Xo1A1aspyjKv4VAkzUZChemit+Dmv6JUXLvRHsp4PcAaw==
   dependencies:
-    "@connext/apps" "6.0.9"
-    "@connext/cf-core" "6.0.9"
-    "@connext/channel-provider" "6.0.9"
+    "@connext/apps" "6.1.2"
+    "@connext/cf-core" "6.1.2"
+    "@connext/channel-provider" "6.1.2"
     "@connext/contracts" "2.0.2"
-    "@connext/messaging" "6.0.9"
-    "@connext/store" "6.0.9"
-    "@connext/types" "6.0.9"
-    "@connext/utils" "6.0.9"
+    "@connext/messaging" "6.1.2"
+    "@connext/store" "6.1.2"
+    "@connext/types" "6.1.2"
+    "@connext/utils" "6.1.2"
     axios "0.19.2"
     core-js "3.6.5"
     ethers "4.0.47"
@@ -773,22 +773,22 @@
     "@connext/types" "6.0.0-alpha.9"
     eccrypto-js "4.5.2"
 
-"@connext/messaging@6.0.9":
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/@connext/messaging/-/messaging-6.0.9.tgz#7fc93ed94c2e751f7e7643fb51b85021ea4c0f08"
-  integrity sha512-VvP30camZcttPHfmLXnUiWecmfIR7DDzD+OJtl195T17N0AEcYtj5vG4EG+snJiEwcpcOfHvjUIYAgeA+buCYw==
+"@connext/messaging@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@connext/messaging/-/messaging-6.1.2.tgz#5cbf1b89da9374c4f759fac37aba074d8edf0100"
+  integrity sha512-0s/Ibfu9/MXDo81Aa+H8/jXFb0FQJTXz/3m+Yg+Ke4GWq2N+CupQMwopq9GiIcjfXly3epS8kD5phNNUfWz9Kg==
   dependencies:
-    "@connext/types" "6.0.9"
-    "@connext/utils" "6.0.9"
+    "@connext/types" "6.1.2"
+    "@connext/utils" "6.1.2"
     ts-natsutil "1.0.6"
 
-"@connext/store@6.0.9":
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/@connext/store/-/store-6.0.9.tgz#c86957522f2829c73199c6167475e4f2dfa8336a"
-  integrity sha512-pIz/P0eRINzIWTZO6+ezzDw5U3URKS8NZ1k8tJ+kUwoRgkDzyuuMZkgetqaoDyVDE0PdSV6Zi5CEQMCfm5kLJA==
+"@connext/store@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@connext/store/-/store-6.1.2.tgz#702a34728331b33a4e48941b90e4c64913b4fa96"
+  integrity sha512-j8t/f381Ko4n9rt/JxjHqLk4CaVwM5/x2pVbt/0NlrovyixVAiAxKFLPz7pDYWC8VzjXrNTRKBbdKim+G/BA8Q==
   dependencies:
-    "@connext/types" "6.0.9"
-    "@connext/utils" "6.0.9"
+    "@connext/types" "6.1.2"
+    "@connext/utils" "6.1.2"
     ethers "4.0.47"
     localStorage "1.0.4"
     pg "8.0.3"
@@ -802,17 +802,17 @@
   resolved "https://registry.yarnpkg.com/@connext/types/-/types-6.0.0-alpha.9.tgz#66d072262fc2d73b11bf106684b5c34a180c4a4b"
   integrity sha512-ranOkRUWtieaG4ltMIuPsBf3ihw8dNjxy2j5gqB5iecRGLY7vJ+FChRqg1tbcVPOmb52San2QNaEzmUhaMfQpg==
 
-"@connext/types@6.0.9":
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/@connext/types/-/types-6.0.9.tgz#99ad51b8c3ce922617f223c41d9f673f892eb25f"
-  integrity sha512-SGe92fk5qyJYvRZmgRUyMeLTBZs70vrIYMnAHfvA/QcL5JhSHV+2KoYBMixm1OrMuCKxc1FARxK+6thlxMrR5Q==
+"@connext/types@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@connext/types/-/types-6.1.2.tgz#800cc40aead73b16839dd18d871f6c2fccb4316e"
+  integrity sha512-gGpF2IVg+2ZssfJ+ng09AiDoZeK4waEZL5GsEraSEtk53jZ10VY0LLS7xIxqgdC0LLek/CcZmKr1U7dV0t2sZA==
 
-"@connext/utils@6.0.9":
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/@connext/utils/-/utils-6.0.9.tgz#37d635f2858067174c37db4ab85433a12efdbbdd"
-  integrity sha512-ovaP/jLbXffSBOYgzysOZ5JtafJQVARzNVoSu/qQg2d+vRPkqDeYrNY/Bblp74C46XuZIMOI1jPWA/vYSj0k7A==
+"@connext/utils@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@connext/utils/-/utils-6.1.2.tgz#7744f042d4bc6b42af00c7a573732466c9f4a0f0"
+  integrity sha512-oQlSC9oEyt4ArlBMHLeUk/0Pro9fbBYCfIoyAlNpJA1JTdtNw4UWNWBQRmdWuY5FcvnLIQXayv+V4XEHqncUWA==
   dependencies:
-    "@connext/types" "6.0.9"
+    "@connext/types" "6.1.2"
     bs58check "2.1.2"
     eccrypto-js "4.5.4"
 
