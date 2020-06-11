@@ -27,6 +27,25 @@ if (typeof localStorage !== 'undefined') {
   localStorage.debug = isDev ? '*' : '';
 }
 
-// If using the crypto shim, uncomment the following line to ensure
-// crypto is loaded first, so it can populate global.crypto
-// require('crypto')
+var crypto = global.crypto || global.msCrypto;
+if (!crypto || !crypto.getRandomValues) {
+  console.log(
+    'WARNING: Missing strong random number source; using weak randomBytes',
+  );
+  crypto = {
+    getRandomValues: function (buffer) {
+      for (var round = 0; round < 20; round++) {
+        for (var i = 0; i < buffer.length; i++) {
+          if (round) {
+            buffer[i] ^= Math.trunc(256 * Math.random());
+          } else {
+            buffer[i] = Math.trunc(256 * Math.random());
+          }
+        }
+      }
+      return buffer;
+    },
+    _weakCrypto: true,
+  };
+  global.crypto = crypto;
+}

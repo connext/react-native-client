@@ -297,7 +297,7 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
     - ReactCommon/callinvoker (= 0.62.2)
-  - RNCAsyncStorage (1.9.0):
+  - RNCAsyncStorage (1.11.0):
     - React
   - RNOS (1.2.6):
     - React
@@ -477,7 +477,7 @@ SPEC CHECKSUMS:
   React-RCTText: fae545b10cfdb3d247c36c56f61a94cfd6dba41d
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
-  RNCAsyncStorage: 453cd7c335ec9ba3b877e27d02238956b76f3268
+  RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNOS: 6f2f9a70895bbbfbdad7196abd952e7b01d45027
   TcpSockets: bd31674146c0931a064fc254a59812dfd1a73ae0
   Yoga: 3ebccbdd559724312790e7742142d062476b698e

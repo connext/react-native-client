@@ -10,14 +10,13 @@ import {
   unstable_enableLogBox,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import { Wallet } from 'ethers';
 import * as connext from '@connext/client';
-import { ConnextStore } from '@connext/store';
-import { StoreTypes } from '@connext/types';
+import { getAsyncStore } from '@connext/store';
+import { Wallet } from 'ethers';
 
 import Info from './components/Info';
 
-import { copyToClipboard, styles } from './helpers';
+import { styles, copyToClipboard } from './helpers';
 
 if (__DEV__) {
   unstable_enableLogBox();
@@ -32,12 +31,14 @@ const App = () => {
   useEffect(() => {
     const startConnext = async () => {
       console.log(`Starting Connext on ${NETWORK}...`);
-      const store = new ConnextStore(StoreTypes.AsyncStorage, {
-        storage: AsyncStorage,
-      });
       const signer = wallet.privateKey;
+      const store = getAsyncStore(AsyncStorage);
       const network = NETWORK.toLowerCase();
-      const chan = await connext.connect(network, { signer, store });
+      const chan = await connext.connect(network, {
+        signer,
+        store,
+        logLevel: 5,
+      });
       console.log('Channel connected!');
 
       setChannel(chan);
@@ -65,11 +66,11 @@ const App = () => {
                   numberOfLines={2}
                   onPress={() =>
                     copyToClipboard(
-                      wallet.mnemonic,
+                      wallet.mnemonic.phrase,
                       'Copied mnemonic to clipboard',
                     )
                   }>
-                  {wallet.mnemonic}
+                  {wallet.mnemonic.phrase}
                 </Text>
               </View>
             </View>
