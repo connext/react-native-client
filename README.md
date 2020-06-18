@@ -22,7 +22,3 @@ yarn start:clean
 # open XCode and run
 open ios/ConnextReactNative.xcworkspace
 ```
-
-### Important notes
-
-There are Connext-specific bits on `post-install.sh` that perform some connext (and related dependencies) specific adjustments to ensure the project builds successfully
