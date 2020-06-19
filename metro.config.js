@@ -6,6 +6,9 @@
  */
 
 module.exports = {
+  resolver: {
+    resolverMainFields: ["react-native", "module", "main"],
+  },
   transformer: {
     getTransformOptions: async () => ({
       transform: {
