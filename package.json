@@ -15,7 +15,7 @@
     "clean:ios": "cd ios && rm -rf build && pod cache clean --all && rm -rf Pods && cd .."
   },
   "dependencies": {
-    "@connext/client": "7.0.0-alpha.2",
+    "@connext/client": "7.0.0-alpha.4-experimental",
     "@react-native-community/async-storage": "^1.9.0",
     "@tradle/react-native-http": "2.0.1",
     "assert": "1.5.0",
