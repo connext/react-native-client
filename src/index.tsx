@@ -23,8 +23,13 @@ if (__DEV__) {
   unstable_enableLogBox();
 }
 
-// const NETWORK = 'Rinkeby';
-const NETWORK = 'Staging';
+const NETWORKS = {
+  0: 'Staging',
+  1: 'Mainnet',
+  4: 'Rinkeby',
+};
+
+const ACTIVE_NETWORK = NETWORKS[0];
 
 const App = () => {
   const [wallet] = useState(Wallet.createRandom());
@@ -32,10 +37,10 @@ const App = () => {
 
   useEffect(() => {
     const startConnext = async () => {
-      console.log(`Starting Connext on ${NETWORK}...`);
+      console.log(`Starting Connext on ${ACTIVE_NETWORK}...`);
       const signer = wallet.privateKey;
       const store = getAsyncStore(AsyncStorage);
-      const network = NETWORK.toLowerCase();
+      const network = ACTIVE_NETWORK.toLowerCase();
       const baseUrl = `${network}.indra.connext.network/api`;
       let opts: ClientOptions = {
         ethProviderUrl: `https://${baseUrl}/ethprovider`,
@@ -83,7 +88,11 @@ const App = () => {
               <Text style={styles.sectionTitle}>{'Channel Information'}</Text>
               {channel ? (
                 <View>
-                  <Info label={'Network'} data={NETWORK} numberOfLines={1} />
+                  <Info
+                    label={'Network'}
+                    data={ACTIVE_NETWORK}
+                    numberOfLines={1}
+                  />
                   <Info
                     label={'Public Identifier'}
                     data={channel.publicIdentifier}
