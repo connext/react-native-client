@@ -12,6 +12,7 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 import * as connext from '@connext/client';
 import { getAsyncStore } from '@connext/store';
+import { ClientOptions } from '@connext/types';
 import { Wallet } from 'ethers';
 
 import Info from './components/Info';
@@ -22,7 +23,8 @@ if (__DEV__) {
   unstable_enableLogBox();
 }
 
-const NETWORK = 'Rinkeby';
+// const NETWORK = 'Rinkeby';
+const NETWORK = 'Staging';
 
 const App = () => {
   const [wallet] = useState(Wallet.createRandom());
@@ -34,11 +36,14 @@ const App = () => {
       const signer = wallet.privateKey;
       const store = getAsyncStore(AsyncStorage);
       const network = NETWORK.toLowerCase();
-      const chan = await connext.connect(network, {
+      const baseUrl = `${network}.indra.connext.network/api`;
+      let opts: ClientOptions = {
+        ethProviderUrl: `https://${baseUrl}/ethprovider`,
+        nodeUrl: `https://${baseUrl}`,
         signer,
         store,
-        logLevel: 5,
-      });
+      };
+      const chan = await connext.connect(opts);
       console.log('Channel connected!');
 
       setChannel(chan);
